@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.example.hai.myapplication.service.JobCastielService;
 import com.example.hai.myapplication.service.ScreenListenerService;
 
 import java.lang.annotation.Annotation;
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        KeyguardManager mKeyguardManager= (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
-        KeyguardManager.KeyguardLock mKeyguardLock= mKeyguardManager.newKeyguardLock("");
-        mKeyguardLock.disableKeyguard();
 
-        Intent intent = new Intent(this, ScreenListenerService.class);
+        /*Intent intent = new Intent(this, ScreenListenerService.class);
+        startService(intent);*/
+
+        Intent intent = new Intent(this, JobCastielService.class);
         startService(intent);
 
     }

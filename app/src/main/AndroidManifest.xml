@@ -3,6 +3,7 @@
     package="com.example.hai.myapplication">
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -23,8 +24,24 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".activity.ScreenActivity"
-            android:launchMode="singleInstance"></activity>
+        <activity
+            android:name=".activity.ScreenActivity"
+            android:launchMode="singleInstance" />
+
+        <service
+            android:name=".service.JobCastielService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name=".service.LocalCastielService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.RemoteCastielService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":test1"></service>
     </application>
 
 </manifest>
